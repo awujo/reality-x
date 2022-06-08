@@ -1,0 +1,884 @@
+@charset "UTF-8";
+/*  RESET
+	========================================================================== */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,main,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}main,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}ol,ul{list-style:none;}li{display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}table{border-collapse:collapse;border-spacing:0;}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}b,strong{font-weight:bold;}textarea{overflow:auto;vertical-align:top;}html{font-family:sans-serif;font-size:100%;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);}audio,canvas,progress,video{display:inline-block;vertical-align:baseline;}audio:not([controls]){display:none;height:0;}[hidden],template{display:none;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.25em;}sub{bottom:-0.25em;}img{border:0;}svg:not(:root){overflow:hidden;}pre{overflow:auto;}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0;}button{overflow:visible;}button,select{text-transform:none;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}input{line-height:normal;}input[type="checkbox"],input[type="radio"]{padding:0;}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto;}input[type="search"]{-webkit-appearance:textfield;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}legend{border:0;padding:0;}optgroup{font-weight:bold;}td,th{padding:0;}a{background:transparent;text-decoration:none;}a:active,a:hover,a:focus{border:none;outline:0;text-decoration:none;}::selection{background:#6a6a6a;color:#f5f5f5;text-shadow:1px 1px 1px #060606;}::-moz-selection{background:#6a6a6a;color:#f5f5f5;text-shadow:1px 1px 1px #060606;}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0;}::-webkit-input-placeholder{color:inherit;opacity:0.5;font-family:inherit;}:-moz-placeholder{color:inherit;opacity:0.5;font-family:inherit;}::-moz-placeholder{color:inherit;opacity:0.5;font-family:inherit;}:-ms-input-placeholder{color:inherit;opacity:0.5;font-family:inherit;}button,.btn:hover{cursor:pointer;}*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+
+
+
+@font-face {
+	font-family: 'Helvetica Neue Condensed';
+	src: url('https://sexsimulators.games/l1/1/fonts/HelveticaNeue-CondensedBlack.eot');
+	src: url('https://sexsimulators.games/l1/1/fonts/HelveticaNeue-CondensedBlack.eot?') format('embedded-opentype'),
+		 url('../fonts/HelveticaNeue-CondensedBlack.woff2') format('woff2'),
+		 url('../fonts/HelveticaNeue-CondensedBlack.woff') format('woff'),
+		 url('../fonts/HelveticaNeue-CondensedBlack.ttf') format('truetype'),
+		 url('https://sexsimulators.games/l1/1/fonts/HelveticaNeue-CondensedBlack.svg') format('svg');
+	font-weight: 900;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Arial Black';
+	src: url('https://sexsimulators.games/l1/1/fonts/Arial-Black.eot');
+	src: url('https://sexsimulators.games/l1/1/fonts/Arial-Black.eot?') format('embedded-opentype'),
+		 url('../fonts/Arial-Black.woff2') format('woff2'),
+		 url('../fonts/Arial-Black.woff') format('woff'),
+		 url('../fonts/Arial-Black.ttf') format('truetype'),
+		 url('https://sexsimulators.games/l1/1/fonts/Arial-Black.svg') format('svg');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir';
+	src: url('https://sexsimulators.games/l1/1/fonts/Avenir-Black.eot');
+	src: url('https://sexsimulators.games/l1/1/fonts/Avenir-Black.eot?') format('embedded-opentype'),
+		 url('../fonts/Avenir-Black.woff2') format('woff2'),
+		 url('../fonts/Avenir-Black.woff') format('woff'),
+		 url('../fonts/Avenir-Black.ttf') format('truetype'),
+		 url('https://sexsimulators.games/l1/1/fonts/Avenir-Black.svg') format('svg');
+	font-weight: 900;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Avenir';
+	src: url('https://sexsimulators.games/l1/1/fonts/Avenir-HeavyOblique.eot');
+	src: url('https://sexsimulators.games/l1/1/fonts/Avenir-HeavyOblique.eot?') format('embedded-opentype'),
+		 url('../fonts/Avenir-HeavyOblique.woff2') format('woff2'),
+		 url('../fonts/Avenir-HeavyOblique.woff') format('woff'),
+		 url('../fonts/Avenir-HeavyOblique.ttf') format('truetype'),
+		 url('https://sexsimulators.games/l1/1/fonts/Avenir-HeavyOblique.svg') format('svg');
+	font-weight: 900;
+	font-style: oblique;
+}
+
+/*  DEFAULT & BASIC STYLES
+	========================================================================== */
+html,
+body {
+	font: 900 62.5%/1 'Helvetica Neue Condensed',Helvetica,Arial,sans-serif;
+	height: 100%;
+	overflow: hidden;
+}
+body {
+	background: url('../images/bg-main.jpg') no-repeat center center #000;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: #fff;
+	font-size: 100%;
+}
+
+
+.bg-blur .videoElement {
+	/* content: '';
+	display: block;
+	position: fixed;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%; */
+	-webkit-filter: blur(25px);
+	filter: blur(25px);
+}
+
+main,
+header,
+section,
+footer,
+nav,
+.container,
+a {
+	-webkit-transition: all 0.1s ease-out;
+	-moz-transition: all 0.1s ease-out;
+	-ms-transition: all 0.1s ease-out;
+	-o-transition: all 0.1s ease-out;
+	transition: all 0.1s ease-out;
+}
+
+.container:before,
+.container:after,
+nav:before,
+nav:after,
+main:before,
+main:after,
+header:before,
+header:after,
+section:before,
+section:after,
+footer:before,
+footer:after,
+.cf:before,
+.cf:after {
+	display: table;
+	content: " ";
+}
+.container:after,
+nav:after,
+main:after,
+header:after,
+section:after,
+footer:after,
+.cf:after {
+	clear: both;
+}
+
+.container {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1300px;
+}
+
+img {
+	display: inline-block;
+	height: auto !important;
+	margin: 0 auto;
+	max-width: 100%;
+	width: auto;
+}
+
+
+
+.btn {
+	display: inline-block;
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+	position: relative;
+	z-index: 1;
+}
+	.btn:hover {
+		-webkit-transform: scale(1.05);
+		-moz-transform: scale(1.05);
+		-ms-transform: scale(1.05);
+		-o-transform: scale(1.05);
+		transform: scale(1.05);
+	}
+	.btn:active {
+		-webkit-transform: scale(1.025);
+		-moz-transform: scale(1.025);
+		-ms-transform: scale(1.025);
+		-o-transform: scale(1.025);
+		transform: scale(1.025);
+	}
+
+
+	.btn--sound::before {
+		display: none;
+	}
+
+	
+
+
+/*  ==========================================================================
+	CONTENT 
+	========================================================================== */
+.header {
+	position: absolute;
+	top: 1vh;
+	left: 0;
+	right: 0;
+	width: 100%;
+	padding: 0 3vw;
+	z-index: 5;
+}
+	.logo {
+		margin: 1vh auto;
+		text-align: center;
+	}
+
+	.header__right {
+		position: absolute;
+		right: 0;
+		top: 0;
+		text-align: right;
+	}
+		.btn--sound {
+			max-width: 60px;
+		}
+		.btn--sound--off {
+			-webkit-filter: grayscale(0.8);
+			filter: grayscale(0.8);
+		}
+		.btn--sound--off:hover {
+			-webkit-filter: grayscale(0.5);
+			filter: grayscale(0.5);
+		}
+
+
+
+
+.main {
+	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-line-pack: center;
+	align-content: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-flow: column nowrap;
+	flex-flow: column nowrap;
+	position: relative;
+	z-index: 4;
+	-webkit-transition: background 0.2s ease-out;
+	-moz-transition: background 0.2s ease-out;
+	-ms-transition: background 0.2s ease-out;
+	-o-transition: background 0.2s ease-out;
+	transition: background 0.2s ease-out;
+}
+
+.bg-blur .main {
+	background: rgba(0, 0, 0, 0.8);
+}
+.steps-done .main {
+	background: rgba(0, 0, 0, 0.4);
+}
+	
+	.main--centered {
+	  padding: 0;
+	  position: absolute;
+	  left: 50%;
+	  top: 50%;
+	  -webkit-transform: translate(-50%,-50%);
+	  -ms-transform: translate(-50%,-50%);
+	  transform: translate(-50%,-50%);
+	}
+
+	
+	.step {
+		background: url('../images/bg-step.png') no-repeat center center rgba(0, 0, 0, 0.67);
+		-webkit-background-size: 100% 100%;
+		-moz-background-size: 100% 100%;
+		-o-background-size: 100% 100%;
+		background-size: 100% 100%;
+		display: none;
+		-webkit-box-flex: 0;
+		-ms-flex: 0 1 auto;
+		flex: 0 1 auto;
+		margin: auto;
+		/* min-height: 66%; */
+		padding: 2vh 2vw 5vh;
+		max-width: 870px;
+		position: relative;
+		text-align: center;
+		width: 94%;
+		-webkit-transition: -webkit-transform 0.4s ease-in-out;
+		-o-transition: -o-transform 0.4s ease-in-out;
+		transition: -webkit-transform 0.4s ease-in-out;
+		-o-transition: transform 0.4s ease-in-out;
+		transition: transform 0.4s ease-in-out;
+		transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+	}
+	.step.step--active {
+	  display: block;
+	}
+	.step.step--done {
+	  -webkit-transform: scale3d(0.33, 0.2, 0.33) translate(-150%,-33%);
+	  -moz-transform: scale3d(0.33, 0.2, 0.33) translate(-150%,-33%);
+	  -ms-transform: scale3d(0.33, 0.2, 0.33) translate(-150%,-33%);
+	  -o-transform: scale3d(0.33, 0.2, 0.33) translate(-150%,-33%);
+	  transform: scale3d(0.33, 0.2, 0.33) translate(-150%,-33%);
+	}
+
+
+	.title {
+		font: bold 5.2em/1.2 Verdana, sans-serif;
+		margin-bottom: 0.33em;
+		text-transform: uppercase;
+		-webkit-touch-callout:none !important;-webkit-user-select:none !important;-khtml-user-select:none !important;-moz-user-select:none !important;-ms-user-select:none !important;user-select:none !important;
+	}
+	.title--av {
+		font: oblique 900 8em/1 Avenir, sans-serif;
+		letter-spacing: -0.25px;
+		letter-spacing: -0.025em;
+		padding-top: 0.3em;
+		text-shadow: 0 5px 0.07em rgba(0, 0, 0, 0.8), 0 0 0.75em rgba(0, 0, 0, 0.1);
+	}
+		.title--av em {
+			font-size: 1.5em;
+		}
+		.title--av strong {
+			color: #fd0101;
+			font-style: normal;
+		}
+	.title--ab {
+		font-family: "Arial Black";
+		font-weight: 900;
+	}
+	.title--red {
+		color: #d93731;
+	}
+	.title--yellow {
+		color: #ffea00;
+	}
+
+
+	.title.title--shorten img {
+		margin: -0.3em auto -0.6em;
+	}
+
+
+
+
+	.txt {
+		font: bold 2.25em/1.2 Verdana, sans-serif;
+		letter-spacing: -0.25px;
+		letter-spacing: -0.025em;
+		margin-bottom: 1em;
+		text-transform: uppercase;
+		text-shadow: 0 2px 0 #000, 0 2px 2px #000, 0 2px 6px #000;
+		-webkit-touch-callout:none !important;-webkit-user-select:none !important;-khtml-user-select:none !important;-moz-user-select:none !important;-ms-user-select:none !important;user-select:none !important;
+	}
+	.txt--ab {
+		font-family: "Arial Black", sans-serif;
+		font-weight: 900;
+	}
+	.txt--sm {
+		font-size: 1.8em;
+		font-weight: normal;
+	}
+	.txt__highlight {
+		color: #ffea00;
+		display: inline-block;
+	}
+
+
+
+	.buttons {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-flow: row nowrap;
+		flex-flow: row nowrap;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-ms-flex-line-pack: center;
+		align-content: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+	html[lang=es] .buttons--lg {
+		font-size: 0.8em;
+	}
+	.btn--step {
+	  background: url('../images/bg-btn.png') no-repeat center center transparent;
+	  background-size: 100% 100%;
+	  color: #000;
+	  font-size: 4.5em;
+	  height: 1.49em;
+	  letter-spacing: -0.25px;
+	  letter-spacing: -0.025em;
+	  line-height: 1.15em;
+	  margin: 0;
+	  text-align: center;
+	  text-transform: uppercase;
+	  width: 5.16em;
+	  -webkit-box-flex: 0;
+	  -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+	}
+	.btn--step--single {
+		width: 7em;
+	}
+
+	.btn--step + .btn--step {
+		margin-left: -0.2em;
+	}
+
+	.btn--lg,
+	.btn--step-double {
+		background-image: url('../images/bg-btn-double.png');
+		height: auto;
+		padding: 0.45em 1.5em;
+		width: auto;
+	}
+	.btn--lg {
+		padding: 0.3em 1.25em 0.45em;
+	}
+	.btn__r {
+		display: block;
+		text-align: center;
+	  line-height: 1;
+	  padding: 0;
+	  margin: auto;
+	}
+	.btn__r + .btn__r {
+		margin-top: -0.2em;
+	}
+	.btn__r--sm {
+		font-size: 0.53em;
+		font-family: Helvetica, Arial, sans-serif;
+		font-weight: 400;
+	}
+	.btn__r--lg .btn__label {
+		font-size: 1.8em;
+	}
+	.btn--primary {
+		background-image: url('../images/bg-btn-primary.png');
+	}
+	.btn--primary.btn--step-double {
+		background-image: url('https://sexsimulators.games/l1/1/images/bg-btn-double-primary.png');
+	}
+
+
+
+	.btn__label,
+	.icon {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.icon--right,
+	.icon--left {
+		background: url('../images/icon-arrow-left.png') no-repeat center center transparent;
+		-webkit-background-size: contain;
+		-moz-background-size: contain;
+		-o-background-size: contain;
+		background-size: contain;
+		height: 0.58em;
+		width: 0.38em;
+		position: relative;
+		top: 0.05em;
+	}
+	.icon--right {
+		background-image: url('../images/icon-arrow-right.png')
+	}
+	.btn--primary .icon--left {
+		background-image: url('https://sexsimulators.games/l1/1/images/icon-arrow-left-primary.png')
+	}
+	.btn--primary .icon--right {
+		background-image: url('../images/icon-arrow-right-primary.png')
+	}
+
+
+	.step__nav {
+		font: 1.8em/1 Verdana, sans-serif;
+		position: absolute;
+		right: 1.5em;
+		top: 1em;
+		text-align: right;
+	}
+
+
+.step__loading {
+  height: 0.35em;
+  /* width: 100%; */
+  display: block;
+  text-align: left;
+  /* background: #000; */
+  border-radius: 1em;
+  position: absolute;
+  width: auto;
+  left: 2em;
+  right: 2em;
+  bottom: 2em;
+  /* box-shadow: 0 0 0.12em 0.125em rgba(255,255,255,0.75); */
+}
+
+	.step__loading__progress {
+	  display: inline-block;
+	  height: 100%;
+	  background: #f00;
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  -webkit-transition: width 0.8s linear;
+	  -moz-transition: width 0.8s linear;
+	  -ms-transition: width 0.8s linear;
+	  -o-transition: width 0.8s linear;
+	  transition: width 0.8s linear;
+	}
+	/* .step__loading__progress::before {
+		content: 'Loading...';
+		display: inline-block;
+		height: 1.2em;
+		line-height: 1.2em;
+		font-size: 1.2em;
+		width: 10em;
+		position: absolute;
+		left: 45%;
+		top: calc(50% - 1.3em);
+		
+		-webkit-animation: pulse 1s infinite cubic-bezier(0.645, 0.045, 0.355, 1.000);
+		animation: pulse 1.2s infinite cubic-bezier(0.645, 0.045, 0.355, 1.000);
+	}
+	@-webkit-keyframes pulse {
+	  0%, 100% {
+	    opacity: 1;
+	  }
+	  66% {
+	    opacity: 0.6;
+	  }
+	}
+	@keyframes pulse {
+	  0%, 100% {
+	    opacity: 1;
+	  }
+	  66% {
+	    opacity: 0.6;
+	  }
+	} */
+
+
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	padding: 0;
+	z-index: 3;
+}
+	/* .footer__left {
+		position: absolute;
+		left: 0;
+		top: 0;
+	} */
+
+
+	#particles,
+	#videoElement {
+	  position: fixed;
+	  left: 0;
+	  right: 0;
+	  top: 0;
+	  bottom: 0;
+	  width: 100%;
+	  height: 100%;
+	  z-index: 2;
+	}
+
+	#videoElement {
+	  left: auto;
+	  top: auto;
+	  width: auto;
+	  height: auto;
+	  min-width: 100%;
+	  min-height: 100%;
+	  z-index: 1;
+	}
+
+
+
+	.steps-done .steps,
+	.steps-done .footer,
+	.steps-done .header {
+		-webkit-transition: all 0.2s ease-out;
+		-moz-transition: all 0.2s ease-out;
+		-ms-transition: all 0.2s ease-out;
+		-o-transition: all 0.2s ease-out;
+		transition: all 0.2s ease-out;
+	}
+	.steps-done .footer,
+	.steps-done .header {
+		-webkit-transform-origin: center top;
+		-ms-transform-origin: center top;
+		transform-origin: center top;
+		-webkit-transform: scale(0.66);
+		-ms-transform: scale(0.66);
+		transform: scale(0.66);
+	}
+	.steps-done .footer {
+		-webkit-transform-origin: left bottom;
+		-ms-transform-origin: left bottom;
+		transform-origin: left bottom;
+	}
+	.steps-done .main {
+		font-size: 0.8em;
+	}
+
+
+	iframe {
+		overflow: hidden;
+	}
+
+
+/*  ==========================================================================
+	LANGS 
+	========================================================================== */
+html[lang=es] .btn--step:not(.btn--lg):not(.btn--step-double) {
+	font-size: 3.2em;
+	width: 6.8em;
+}
+
+
+
+
+
+/*  ==========================================================================
+	MEDIA QUERIES 
+	========================================================================== */
+
+@-ms-viewport { width: device-width; }
+
+@media all and (max-width:1079px) and (max-height:799px){
+	.logo img {
+		max-height: 80px;
+	}
+	.header__right {
+		top: 1em;
+		right: 0.75em;
+	}
+	.title.title--shorten img {
+	  margin: -0.6em auto -1em;
+		max-height: 220px;
+	}
+	.btn--step {
+		font-size: 3.5em;
+	}
+	.parental {
+		max-width: 200px;
+	}
+}
+@media all and (max-width:1079px) and (max-height:699px){
+	.title.title--shorten img {
+	  margin: -0.5em auto -0.9em;
+		max-height: 200px;
+	}
+	.btn--step {
+		font-size: 3.25em;
+	}
+	.parental {
+		max-width: 180px;
+	}
+}
+
+@media all and (max-width:767px){
+	.header__right {
+		top: 0.5em;
+		right: 0.25em;
+	}
+	.buttons--multiple {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-flow: row wrap;
+		flex-flow: row wrap;
+	}
+	.buttons--lg {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-flow: column wrap;
+		flex-flow: column wrap;
+	}
+	.buttons--lg .btn--lg {
+		width: 92%;
+	}
+	.title--av {
+		font-size: 6em;
+	}
+	.title--v {
+		font-size: 4.4em;
+		margin: 0.11em auto 0.22em;
+	}
+}
+@media all and (max-width:579px){
+	.logo {
+		margin-left: 0;
+		margin-right: auto;
+		max-width: 80%;
+	}
+	.header__right {
+		top: 1em;
+		right: 0.5em;
+	}
+	.btn--step {
+		font-size: 3.6em;
+	}
+	.btn__r--lg .btn__label {
+		font-size: 1.55em;
+	}
+	.parental {
+		max-width: 40%;
+	}
+	.btn--sound {
+		max-width: 50px;
+	}
+
+	.title--av {
+		font-size: 5em;
+	}
+	.title--v {
+		font-size: 4em;
+		margin: 0.11em auto 0.22em;
+	}
+	.txt {
+		font-size: 2.1em;
+	}
+	.txt--v {
+		font-size: 2em;
+	}
+	.txt--sm {
+		font-size: 1.68em;
+	}
+	.step__nav {
+		right: 0.5em;
+		top: 0.5em;
+	}
+}
+@media all and (max-width:479px){
+	.btn--step {
+		font-size: 3em;
+	}
+	.btn__r--sm {
+		max-width: 80%;
+	}
+	.btn__r--lg .btn__label {
+		font-size: 1.51em;
+	}
+	.parental {
+		max-width: 30%;
+	}
+	.header__right {
+		top: 1.5em;
+		right: 0.75em;
+	}
+	.btn--sound {
+		max-width: 40px;
+	}
+
+	.txt {
+		font-size: 2em;
+	}
+	.txt--v {
+		font-size: 1.9em;
+	}
+	.txt--sm {
+		font-size: 1.6em;
+	}
+	.title--av {
+		font-size: 4em;
+	}
+	.title--v {
+		font-size: 2.9em;
+	}
+	.step__nav {
+		right: 0.4em;
+		top: 0.4em;
+	}
+
+	.buttons--multiple .btn--step {
+		height: auto;
+	  padding: 0.1em 0.5em 0.35em;
+	  width: 48%;
+	}
+	.buttons--multiple .btn--step .btn__label {
+		max-width: 70%;
+	}
+	.buttons--multiple .btn--step .btn__label img {
+		display: block;
+	}
+	
+}
+@media all and (max-width:379px){
+	.title {
+		font-size: 4em;
+	}
+	.title--av {
+		font-size: 3em;
+	}
+	.title--v {
+		font-size: 2.4em;
+		margin: 0.25em auto 0.18em;
+	}
+	.txt {
+		font-size: 1.9em;
+	}
+	.txt--v {
+		font-size: 1.8em;
+	}
+	.txt--sm {
+		font-size: 1.52em;
+	}
+	
+	.btn--step {
+		font-size: 2.2em;
+	}
+	.btn__r--lg .btn__label {
+		font-size: 1.55em;
+	}
+	.btn--step-double {
+		max-width: 90%;
+	}
+	.step__nav {
+		font-size: 1.6em;
+		right: 0.35em;
+		top: 0.35em;
+	}
+}
+@media all and (max-width:379px) and (max-height:520px) {
+	.txt {
+		font-size: 1.52em;
+	}
+	.txt--v {
+		font-size: 1.44em;
+	}
+	.txt--sm {
+		font-size: 1.22em;
+	}
+	.step__nav {
+		font-size: 1.5em;
+		right: 0.25em;
+		top: 0.25em;
+	}
+}
+@media all and (max-width:349px) and (max-height:579px) {
+	.logo {
+		margin-top: 0;
+		margin-bottom: 0;
+		text-align: left;
+	}
+	.logo img {
+	  max-height: 40px;
+	}
+	.header__right {
+	  top: 0.5em;
+	  right: 0.75em;
+	}
+	.btn--sound {
+	  max-width: 32px;
+	}
+	.step--final {
+		padding: 0.25em 0.1em 1em;
+		width: 99%;
+	}
+	.parental {
+		max-width: 26%;
+	}
+}
+@media all and (max-width:349px) and (max-height:499px) {
+	.logo img {
+	  max-height: 25px;
+	}
+	.header__right {
+	  top: 0.25em;
+	}
+	.btn--sound {
+	  max-width: 25px;
+	}
+	.step--final {
+		padding: 0.1em 0.1em 1em;
+		width: 99%;
+	}
+	.parental {
+		max-width: 26%;
+	}
+	.step--final .title--v {
+		font-size: 2em;
+	}
+}
