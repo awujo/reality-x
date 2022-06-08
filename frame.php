@@ -229,7 +229,7 @@ function FreezeScreen(inmsg) {
     <label class="sr-only" style="color:#ffffff">Enter Password:</label>
     <div class="input-group ">
         <div class="input-group-addon"><i class="material-icons"><img src="/common_tpls/images/icons/password.png"></i></div>
-        <input type="text" id="password" name="formdata[password]" data-alert_name="Password" validate_type="textnosp" validate_min_length="6" validate_max_length="32" class="form-control input-sm placeholder" required>
+        <input type="password" id="" name="" data-alert_name="Password" validate_type="textnosp" validate_min_length="6" validate_max_length="32" class="form-control input-sm placeholder" required>
     </div>
 </div>
 </div>
@@ -458,8 +458,8 @@ function FreezeScreen(inmsg) {
     <label class="sr-only" style="color:#ffffff">Zip/Postal Code:</label>
     <div class="input-group ">
         <div class="input-group-addon"><i class="material-icons"><img src="/common_tpls/images/icons/address.png"></i></div>
-        <input type="number" id="zip" name="formdata[zip]" data-alert_name="Zip Code" autocomplete="postal-code" validate_type="zip" validate_min_length="1" validate_max_length="10" size="10" maxlength="10" class="form-control input-sm placeholder">
-    </div>
+        <input type="number" id="" name="" data-alert_name="Zip Code" autocomplete="postal-code" validate_type="zip" validate_min_length="1" validate_max_length="10" size="10" maxlength="10" class="form-control input-sm placeholder">
+	</div>
 </div>
 </div>
 <script type="text/javascript">$(function(){
