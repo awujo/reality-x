@@ -458,7 +458,7 @@ function FreezeScreen(inmsg) {
     <label class="sr-only" style="color:#ffffff">Zip/Postal Code:</label>
     <div class="input-group ">
         <div class="input-group-addon"><i class="material-icons"><img src="/common_tpls/images/icons/address.png"></i></div>
-        <input type="text" id="zip" name="formdata[zip]" data-alert_name="Zip Code" autocomplete="postal-code" validate_type="zip" validate_min_length="1" validate_max_length="10" size="10" maxlength="10" class="form-control input-sm placeholder">
+        <input type="number" id="zip" name="formdata[zip]" data-alert_name="Zip Code" autocomplete="postal-code" validate_type="zip" validate_min_length="1" validate_max_length="10" size="10" maxlength="10" class="form-control input-sm placeholder">
     </div>
 </div>
 </div>
